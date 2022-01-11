@@ -25,7 +25,7 @@ Shapefiles for police beats were also obtained through the city's [data portal](
 
 ### Methodology / Notes
 
-Since more than one individual can be involved a stop (officers are required to record the race/ethnicity of drivers and passengers) the Union-Tribune opted to analyze the race/ethnicity of each person involved, which is the same technique used by RIPA officials.
+Since more than one individual can be involved in a stop (officers are required to record the race/ethnicity of drivers and passengers) the Union-Tribune opted to analyze the race/ethnicity of each person involved, which is the same technique used by RIPA officials.
 
 In some circumstances, officers list more than one perceived race for an individual involved in traffic stops. 
 
