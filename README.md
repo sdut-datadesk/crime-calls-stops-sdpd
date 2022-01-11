@@ -7,7 +7,7 @@ This repository contains data and code for the analysis [reported and published]
 
 Studies over the past decade have shown San Diego police stop, search and arrest people of color more often than Whites. Police officials have repeatedly said factors other than racial bias are driving the numbers. Specifically, that officers respond to crimes, emergency calls and complaints, and these are what largely drive the numbers.
 
-The Union-Tribune analyzed police stops with calls for service and reported crimes in each beat from January 2019 through June 2021 to determine whether police stops of drivers and pedestrians are proportional to crime activity and calls for service in each neighborhood.
+The Union-Tribune analyzed stops conducted by the San Diego Police Department (SDPD) with calls for service and reported crimes in each beat from January 2019 through June 2021 to determine whether stops of drivers and pedestrians are proportional to crime activity and calls for service in each neighborhood.
 
 Ratios of stops per reported crime, people stopped per reported crime and stops per every Part 1 -- or violent -- crime were calculated to identify areas with disproportionate policing, and population data was used to identify majority-White and majority-non-White beats.
 
@@ -40,15 +40,18 @@ Stop, crime and call data files all contained rows with beat names or numbers no
 ### The SDUT repository contains the following:
 
 - `beat_demographics_2019_acs.csv` - Population data for each beat, based on the U.S. Census Bureau's American Community Survey for 2019.
-- `ripa_contraband_evid_datasd.csv` - Contraband or evidence found during each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
-- `ripa_disability_datasd.csv` - Disabilities perceived in each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
-- `ripa_prop_seize_basis_datasd.csv` - The basis for which property was seized in each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
-- `ripa_prop_seize_type_datasd.csv` - The types of property seized in each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
-- `ripa_race_datasd.csv` - The race of each individual stopped by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
-- `ripa_search_basis_datasd.csv` - The basis for each search conducted by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
-- `ripa_stop_reason_datasd.csv` - The reason for each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
-- `ripa_stops_datasd.csv` - General location, date and time for each stop conducted by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
-- `hit-rate-analysis-sdpd.R` - Import and analysis R script documenting findings published by the Union-Tribune.
+- `crime_desc_part1_cats.csv` - Descriptions of crimes found in SDPD crime data, containing Part 1 or Part 2 distinctions.
+- `master-ripa-2019.csv` - Stops conducted by SDPD in 2019, collected under RIPA.
+- `master-ripa-2020.csv` - Stops conducted by SDPD in 2020, collected under RIPA.
+- `master-ripa-2021.csv` - Stops conducted by SDPD in 2021, collected under RIPA.
+- `pd_beats_datasd` - Folder containing shapefiles for SDPD beats.
+- `pd_calls_for_service_2019_datasd.csv` - Emergency calls for service in San Diego in 2019.
+- `pd_calls_for_service_2020_datasd.csv` - Emergency calls for service in San Diego in 2020.
+- `pd_calls_for_service_2021_datasd.csv` - Emergency calls for service in San Diego in 2021.
+- `pd_dispo_codes_datasd.csv` - Disposition codes and descriptions for emergency calls for service.
+- `PRA 21-4922_2019-2021_Crimes__UCR Revised.xlsx` - Data of all crimes reported to SDPD, requested and obtained under the California Public Records Act.
+- `crime-calls-stops-sdpd-analysis.R` - Import and analysis R script documenting findings published by the Union-Tribune. Main code used to create and export stops-crime-calls-by-beat.csv, showing crimes, stops, calls for service and other variables by SDPD beat.
+- `stops-crime-calls-by-beat.csv` - Filed created with R analysis showing crimes, stops, calls for service and other variables by SDPD beat.
 
 ### Sourcing
 Please link and source [*The San Diego Union-Tribune*](https://www.sandiegouniontribune.com/) when referencing any analysis or findings in published work.
