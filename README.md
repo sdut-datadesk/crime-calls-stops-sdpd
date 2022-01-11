@@ -9,7 +9,7 @@ Studies over the past decade have shown San Diego police stop, search and arrest
 
 The Union-Tribune analyzed stops conducted by the San Diego Police Department (SDPD) with calls for service and reported crimes in each beat from January 2019 through June 2021 to determine whether stops of drivers and pedestrians are proportional to crime activity and calls for service in each neighborhood.
 
-Ratios of stops per reported crime, people stopped per reported crime and stops per every Part 1 -- or violent -- crime were calculated to identify areas with disproportionate policing, and population data was used to identify majority-White and majority-non-White beats.
+Ratios of stops per reported crime, people stopped per reported crime and stops per every Part 1 -- or serious -- crime were calculated to identify areas with disproportionate policing, and population data was used to identify majority-White and majority-non-White beats.
 
 The analysis is the latest examination of crime and policing in San Diego undertaken by the Union-Tribune. 
 
