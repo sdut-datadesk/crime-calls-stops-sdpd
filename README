@@ -39,7 +39,7 @@ Stop, crime and call data files all contained rows with beat names or numbers no
 
 ### The SDUT repository contains the following:
 
-- `ripa_actions_taken_datasd.csv` - Actions taken in each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
+- `beat_demographics_2019_acs.csv` - Population data for each beat, based on the U.S. Census Bureau's American Community Survey for 2019.
 - `ripa_contraband_evid_datasd.csv` - Contraband or evidence found during each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
 - `ripa_disability_datasd.csv` - Disabilities perceived in each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
 - `ripa_prop_seize_basis_datasd.csv` - The basis for which property was seized in each stop by San Diego Police Department. Contains data for stops from July 2018 through December 2020.
