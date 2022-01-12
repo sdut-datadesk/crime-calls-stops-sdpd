@@ -685,6 +685,324 @@ final@data <- final@data %>%
 write.csv(final@data, "stops-crime-calls-by-beat.csv")
 
 ###################################################################
+########################## ANALYSIS ###############################
+###################################################################
+
+n_distinct(final$beat)
+
+# How many stops total?
+n_distinct(master$stop_id)
+# 353547
+
+# How many people stopped?
+n_distinct(master$id)
+# 407684
+
+# How many stops occurred in proper police beats?
+n_distinct(master2$stop_id)
+# 344419
+
+# How many people were stopped in proper police beats?
+n_distinct(master2$id)
+# 398082
+
+# Calculate proportion of race of all people stopped in legitimate beats
+master2 %>% 
+  count(race_condensed) %>% 
+  arrange(desc(n))
+
+# race_condensed  count
+#          white 165208
+#           hisp 118100
+#          black  79854
+#          asian  19072
+#          me_sa  10657
+#             pi   3021
+#          mixed   1370
+#            nam    800
+
+# Calculate percentages
+master2 %>% 
+  count(race_condensed) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# race_condensed  count               percent
+#          white 165208              41.5009973
+#           hisp 118100              29.6672545
+#          black  79854              20.0596862
+#          asian  19072               4.7909727
+#          me_sa  10657               2.6770866
+#             pi   3021               0.7588889
+#          mixed   1370               0.3441502
+#            nam    800               0.2009636
+
+# How many crimes were part 1?
+crime2 %>% 
+  count(category) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# category     n `(prop = n/sum(n)) * 100`
+#        1 77419                      59.1
+#        0 53473                      40.9
+
+# Calls by disposition
+call_disp <- calls2 %>% 
+  group_by(disposition) %>% 
+  summarise(total = n()) %>% 
+  mutate(percent = round((total / sum(total))*100,1))
+
+# Left join to get disposition descriptions
+call_disp <- left_join(call_disp, disp, by = "disposition")
+
+# Calls by type
+call_types <- calls2 %>% 
+  group_by(call_type) %>% 
+  summarise(total = n()) %>% 
+  mutate(percent = round((total / sum(total))*100,1))
+
+# Most common call type by beat
+call_types <- calls2 %>% 
+  group_by(beat, call_type) %>% 
+  summarise(total = n())
+
+# Spread
+call_types <- call_types %>% 
+  spread(key = call_type, value = total, fill = 0)
+
+###################################################################
+
+## Calculating overall city data for graphics
+# Total people stopped for traffic violations
+reasons <- master2 %>% 
+  count(reason_condensed) %>% 
+  arrange(desc(n))
+
+test <- master2 %>% 
+  filter(is.na(reason_condensed))
+
+remove(test)
+
+master2$reason_condensed <- ifelse(is.na(master2$reason_condensed), "OTHER", master2$reason_condensed)
+
+traffic <- master2 %>% 
+  filter(reason_words == "Traffic Violation") %>% 
+  count(reason_detail) %>% 
+  arrange(desc(n))
+
+sum(traffic$n)
+
+searches <- master2 %>% 
+  filter(is_searched == 1)
+
+searches %>% 
+  count(discretionary)
+
+# discretionary     n
+#             0 47655
+#             1 37675
+
+###################################################################
+
+## Calculating graphics for neighborhoods
+
+# Extract stops in 124 beat -- La Jolla
+lajolla <- master2 %>% 
+  filter(beat == 124)
+
+# race of people stopped
+lajolla %>% 
+  count(race_condensed) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# reasons people were stopped
+lajolla %>% 
+  count(reason_condensed) %>% 
+  arrange(desc(n))
+
+# reason details for traffic violations
+lajolla %>% 
+  filter(reason_condensed == "TRAFFIC") %>% 
+  count(reason_detail)
+
+# People searched
+lajolla %>% 
+  count(is_searched)
+
+# People searched discretionary vs non-discretionary
+lajolla %>% 
+  filter(is_searched == 1) %>% 
+  count(discretionary)
+
+###################################################################
+
+# Extract stops in 712 beat -- San Ysidro
+sy <- master2 %>% 
+  filter(beat == 712)
+
+# race of people stopped
+sy %>% 
+  count(race_condensed) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# reasons people were stopped
+sy %>% 
+  count(reason_condensed) %>% 
+  arrange(desc(n))
+
+# reason details for traffic violations
+sy %>% 
+  filter(reason_condensed == "TRAFFIC") %>% 
+  count(reason_detail)
+
+# People searched
+sy %>% 
+  count(is_searched)
+
+# People searched discretionary vs non-discretionary
+sy %>% 
+  filter(is_searched == 1) %>% 
+  count(discretionary)
+
+###################################################################
+
+# Extract stops in 825 beat -- Kensington
+kens <- master2 %>% 
+  filter(beat == 825)
+
+# race of people stopped
+kens %>% 
+  count(race_condensed) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# reasons people were stopped
+kens %>% 
+  count(reason_condensed) %>% 
+  arrange(desc(n))
+
+# reason details for traffic violations
+kens %>% 
+  filter(reason_condensed == "TRAFFIC") %>% 
+  count(reason_detail)
+
+# People searched
+kens %>% 
+  count(is_searched)
+
+# People searched discretionary vs non-discretionary
+kens %>% 
+  filter(is_searched == 1) %>% 
+  count(discretionary)
+
+###################################################################
+
+# Extract stops in 626 beat -- Mission Hills
+mh <- master2 %>% 
+  filter(beat == 626)
+
+# race of people stopped
+mh %>% 
+  count(race_condensed) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# reasons people were stopped
+mh %>% 
+  count(reason_condensed) %>% 
+  arrange(desc(n))
+
+# reason details for traffic violations
+mh %>% 
+  filter(reason_condensed == "TRAFFIC") %>% 
+  count(reason_detail)
+
+# People searched
+mh %>% 
+  count(is_searched)
+
+# People searched discretionary vs non-discretionary
+mh %>% 
+  filter(is_searched == 1) %>% 
+  count(discretionary)
+
+###################################################################
+
+# Extract stops in 724 beat -- Palm City
+pc <- master2 %>% 
+  filter(beat == 724)
+
+# race of people stopped
+pc %>% 
+  count(race_condensed) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# reasons people were stopped
+pc %>% 
+  count(reason_condensed) %>% 
+  arrange(desc(n))
+
+# reason details for traffic violations
+pc %>% 
+  filter(reason_condensed == "TRAFFIC") %>% 
+  count(reason_detail)
+
+# People searched
+pc %>% 
+  count(is_searched)
+
+# People searched discretionary vs non-discretionary
+pc %>% 
+  filter(is_searched == 1) %>% 
+  count(discretionary)
+
+###################################################################
+
+# Extract stops in 832 beat -- Teralta West
+tw <- master2 %>% 
+  filter(beat == 832)
+
+# race of people stopped
+tw %>% 
+  count(race_condensed) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# reasons people were stopped
+tw %>% 
+  count(reason_condensed) %>% 
+  arrange(desc(n))
+
+# reason details for traffic violations
+tw %>% 
+  filter(reason_condensed == "TRAFFIC") %>% 
+  count(reason_detail)
+
+# People searched
+tw %>% 
+  count(is_searched)
+
+# People searched discretionary vs non-discretionary
+tw %>% 
+  filter(is_searched == 1) %>% 
+  count(discretionary)
+
+###################################################################
+## Populations of neighborhoods
+
+pop_graphics <- pop %>% 
+  filter(beat == 712 |
+           beat == 832 |
+           beat == 724 |
+           beat == 626 |
+           beat == 124 |
+           beat == 825)
+
+###################################################################
 ######################### EXTRACTIONS #############################
 ###################################################################
 
@@ -923,96 +1241,3 @@ write.csv(beat712_crime, "beat712_crime.csv")
 beat712_calls <- calls2 %>% 
   filter(beat == 712)
 write.csv(beat712_calls, "beat712_calls.csv")
-
-###################################################################
-########################## ANALYSIS ###############################
-###################################################################
-
-n_distinct(final$beat)
-
-# How many stops total?
-n_distinct(master$stop_id)
-# 353547
-
-# How many people stopped?
-n_distinct(master$id)
-# 407684
-
-# How many stops occurred in proper police beats?
-n_distinct(master2$stop_id)
-# 344419
-
-# How many people were stopped in proper police beats?
-n_distinct(master2$id)
-# 398082
-
-# Calculate proportion of race of all people stopped
-master2 %>% 
-  count(race_condensed) %>% 
-  arrange(desc(n))
-
-# race_condensed  count
-#          white 165208
-#           hisp 118100
-#          black  79854
-#          asian  19072
-#          me_sa  10657
-#             pi   3021
-#          mixed   1370
-#            nam    800
-
-# Calculate percentages
-master2 %>% 
-  count(race_condensed) %>% 
-  mutate((prop = n / sum(n))*100) %>% 
-  arrange(desc(`(prop = n/sum(n)) * 100`))
-
-# race_condensed  count               percent
-#          white 165208              41.5009973
-#           hisp 118100              29.6672545
-#          black  79854              20.0596862
-#          asian  19072               4.7909727
-#          me_sa  10657               2.6770866
-#             pi   3021               0.7588889
-#          mixed   1370               0.3441502
-#            nam    800               0.2009636
-
-# How many stops resulted in searches?
-master2 %>% 
-  filter(is_searched == 1) %>% 
-  group_by(stop_id) %>% 
-  summarise(total = n())
-
-# Create table of just searches
-searches <- master %>% 
-  filter(is_searched == 1)
-
-# How many stops were due to a call for service?
-master %>% 
-  filter(is_serv == 1) %>% 
-  group_by(stop_id) %>% 
-  summarise(total = n())
-
-# Calls by disposition
-call_disp <- calls %>% 
-  group_by(disposition) %>% 
-  summarise(total = n()) %>% 
-  mutate(percent = round((total / sum(total))*100,1))
-
-# Left join to get disposition descriptions
-call_disp <- left_join(call_disp, disp, by = "disposition")
-
-# Calls by type
-call_types <- calls %>% 
-  group_by(call_type) %>% 
-  summarise(total = n()) %>% 
-  mutate(percent = round((total / sum(total))*100,1))
-
-# Most common call type by beat
-call_types <- calls %>% 
-  group_by(beat, call_type) %>% 
-  summarise(total = n())
-
-# Spread
-call_types <- call_types %>% 
-  spread(key = call_type, value = total, fill = 0)
