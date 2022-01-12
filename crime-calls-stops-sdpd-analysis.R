@@ -947,35 +947,35 @@ n_distinct(master2$id)
 # 398082
 
 # Calculate proportion of race of all people stopped
-master %>% 
+master2 %>% 
   count(race_condensed) %>% 
   arrange(desc(n))
 
 # race_condensed  count
-#          white 168446
-#           hisp 121874
-#          black  81387
-#          asian  19647
-#          me_sa  11001
-#             pi   3112
-#          mixed   1408
-#            nam    809
+#          white 165208
+#           hisp 118100
+#          black  79854
+#          asian  19072
+#          me_sa  10657
+#             pi   3021
+#          mixed   1370
+#            nam    800
 
 # Calculate percentages
-master %>% 
+master2 %>% 
   count(race_condensed) %>% 
   mutate((prop = n / sum(n))*100) %>% 
   arrange(desc(`(prop = n/sum(n)) * 100`))
 
 # race_condensed  count               percent
-#          white 168446              41.3177853
-#           hisp 121874              29.8942318
-#          black  81387              19.9632559
-#          asian  19647               4.8191737
-#          me_sa  11001               2.6984135
-#             pi   3112               0.7633363
-#          mixed   1408               0.3453655
-#            nam    809               0.1984380
+#          white 165208              41.5009973
+#           hisp 118100              29.6672545
+#          black  79854              20.0596862
+#          asian  19072               4.7909727
+#          me_sa  10657               2.6770866
+#             pi   3021               0.7588889
+#          mixed   1370               0.3441502
+#            nam    800               0.2009636
 
 # How many stops resulted in searches?
 master2 %>% 
