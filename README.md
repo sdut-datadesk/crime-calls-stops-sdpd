@@ -37,6 +37,14 @@ The Union-Tribune aimed to identify the number of Part 1 and Part 2 crimes that 
 
 Stop, crime and call data files all contained rows with beat names or numbers not found in the city of San Diego's police beat shapefile. These were removed from the analyses.
 
+The Union-Tribune broke down searches into two categories: discretionary and non-discretionary.
+
+Non-discretionary searches are typically required under department policy or state law, and include those made during arrests or when officers execute a warrant. The Union-Tribune considered the following search reasons non-discretionary: vehicle inventory, incident to arrest and search warrant.
+
+The remaining search reasons were considered discretionary to some degree, meaning it was partially or entirely up to the officer to decide whether to search an individual, such as when they smell drugs or think they see a weapon.
+
+If both a discretionary and non-discretionary reason were listed, the search was classified as non-discretionary, since a search would be required by law or policy, regardless of other circumstances.
+
 ### The SDUT repository contains the following:
 
 - `beat_demographics_2019_acs.csv` - Population data for each beat, based on the U.S. Census Bureau's American Community Survey for 2019.
