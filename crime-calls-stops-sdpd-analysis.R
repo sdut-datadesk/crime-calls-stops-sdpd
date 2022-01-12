@@ -683,3 +683,336 @@ final@data <- final@data %>%
 
 # Create file for further analysis
 write.csv(final@data, "stops-crime-calls-by-beat.csv")
+
+###################################################################
+######################### EXTRACTIONS #############################
+###################################################################
+
+# Extract stops in 435 beat -- Broadway Heights
+beat435_stops <- master2 %>% 
+  filter(beat == 435)
+write.csv(beat435_stops, "beat435_stops.csv")
+
+# Extract crime in 435
+beat435_crime <- crime2 %>% 
+  filter(beat == 435)
+write.csv(beat435_crime, "beat435_crime.csv")
+
+# Extract calls in 435
+beat435_calls <- calls2 %>% 
+  filter(beat == 435)
+write.csv(beat435_calls, "beat435_calls.csv")
+table(crime2$violationType)
+###################################################################
+
+# Extract stops in 316 beat -- Qualcomm
+beat316_stops <- master2 %>% 
+  filter(beat == 316)
+write.csv(beat316_stops, "beat316_stops.csv")
+
+# Extract crime in 316
+beat316_crime <- crime2 %>% 
+  filter(beat == 316)
+write.csv(beat316_crime, "beat316_crime.csv")
+
+# Extract calls in 316
+beat316_calls <- calls2 %>% 
+  filter(beat == 316)
+write.csv(beat316_calls, "beat316_calls.csv")
+
+###################################################################
+
+# Extract stops in 714 beat -- Border
+beat714_stops <- master2 %>% 
+  filter(beat == 714)
+write.csv(beat714_stops, "beat714_stops.csv")
+
+# Extract crime in 714
+beat714_crime <- crime2 %>% 
+  filter(beat == 714)
+write.csv(beat714_crime, "beat714_crime.csv")
+
+# Extract calls in 714
+beat714_calls <- calls2 %>% 
+  filter(beat == 714)
+write.csv(beat714_calls, "beat714_calls.csv")
+
+###################################################################
+
+# Extract stops in 514 beat -- Sherman Heights
+beat514_stops <- master2 %>% 
+  filter(beat == 514)
+write.csv(beat514_stops, "beat514_stops.csv")
+
+# Extract crime in 514
+beat514_crime <- crime2 %>% 
+  filter(beat == 514)
+write.csv(beat514_crime, "beat514_crime.csv")
+
+# Extract calls in 514
+beat514_calls <- calls2 %>% 
+  filter(beat == 514)
+write.csv(beat514_calls, "beat514_calls.csv")
+
+###################################################################
+
+# Extract stops in 932 beat -- Torrey Preserve
+beat932_stops <- master2 %>% 
+  filter(beat == 932)
+write.csv(beat932_stops, "beat932_stops.csv")
+
+# Extract crime in 932
+beat932_crime <- crime2 %>% 
+  filter(beat == 932)
+write.csv(beat932_crime, "beat932_crime.csv")
+
+# Extract calls in 932
+beat932_calls <- calls2 %>% 
+  filter(beat == 932)
+write.csv(beat932_calls, "beat932_calls.csv")
+
+###################################################################
+
+# Extract stops in 511 beat -- Barrio Logan
+beat511_stops <- master2 %>% 
+  filter(beat == 511)
+write.csv(beat511_stops, "beat511_stops.csv")
+
+# Extract crime in 511
+beat511_crime <- crime2 %>% 
+  filter(beat == 511)
+write.csv(beat511_crime, "beat511_crime.csv")
+
+# Extract calls in 511
+beat511_calls <- calls2 %>% 
+  filter(beat == 511)
+write.csv(beat511_calls, "beat511_calls.csv")
+
+###################################################################
+
+# Extract stops in 933 beat -- Del Mar Heights
+beat933_stops <- master2 %>% 
+  filter(beat == 933)
+write.csv(beat933_stops, "beat933_stops.csv")
+
+# Extract crime in 933
+beat933_crime <- crime2 %>% 
+  filter(beat == 933)
+write.csv(beat933_crime, "beat933_crime.csv")
+
+# Extract calls in 933
+beat933_calls <- calls2 %>% 
+  filter(beat == 933)
+write.csv(beat933_calls, "beat933_calls.csv")
+
+###################################################################
+
+# Extract stops in 832 beat -- Teralta West
+beat832_stops <- master2 %>% 
+  filter(beat == 832)
+write.csv(beat832_stops, "beat832_stops.csv")
+
+# Extract crime in 832
+beat832_crime <- crime2 %>% 
+  filter(beat == 832)
+write.csv(beat832_crime, "beat832_crime.csv")
+
+# Extract calls in 832
+beat832_calls <- calls2 %>% 
+  filter(beat == 832)
+write.csv(beat832_calls, "beat832_calls.csv")
+
+###################################################################
+
+# Extract stops in 831 beat -- Teralta East
+beat831_stops <- master2 %>% 
+  filter(beat == 831)
+write.csv(beat831_stops, "beat831_stops.csv")
+
+# Extract crime in 831
+beat831_crime <- crime2 %>% 
+  filter(beat == 831)
+write.csv(beat831_crime, "beat831_crime.csv")
+
+# Extract calls in 831
+beat831_calls <- calls2 %>% 
+  filter(beat == 831)
+write.csv(beat831_calls, "beat831_calls.csv")
+
+###################################################################
+
+# Extract stops in 724 beat -- Palm City
+beat724_stops <- master2 %>% 
+  filter(beat == 724)
+write.csv(beat724_stops, "beat724_stops.csv")
+
+# Extract crime in 724
+beat724_crime <- crime2 %>% 
+  filter(beat == 724)
+write.csv(beat724_crime, "beat724_crime.csv")
+
+# Extract calls in 724
+beat724_calls <- calls2 %>% 
+  filter(beat == 724)
+write.csv(beat724_calls, "beat724_calls.csv")
+
+###################################################################
+
+# Extract stops in 626 beat -- Mission Hills
+beat626_stops <- master2 %>% 
+  filter(beat == 626)
+write.csv(beat626_stops, "beat626_stops.csv")
+
+# Extract crime in 626
+beat626_crime <- crime2 %>% 
+  filter(beat == 626)
+write.csv(beat626_crime, "beat626_crime.csv")
+
+# Extract calls in 626
+beat626_calls <- calls2 %>% 
+  filter(beat == 626)
+write.csv(beat626_calls, "beat626_calls.csv")
+
+###################################################################
+
+# Extract stops in 124 beat -- La Jolla
+beat124_stops <- master2 %>% 
+  filter(beat == 124)
+write.csv(beat124_stops, "beat124_stops.csv")
+
+# Extract crime in 124
+beat124_crime <- crime2 %>% 
+  filter(beat == 124)
+write.csv(beat124_crime, "beat124_crime.csv")
+
+# Extract calls in 124
+beat124_calls <- calls2 %>% 
+  filter(beat == 124)
+write.csv(beat124_calls, "beat124_calls.csv")
+
+###################################################################
+
+# Extract stops in 825 beat -- Kensington
+beat825_stops <- master2 %>% 
+  filter(beat == 825)
+write.csv(beat825_stops, "beat825_stops.csv")
+
+# Extract crime in 825
+beat825_crime <- crime2 %>% 
+  filter(beat == 825)
+write.csv(beat825_crime, "beat825_crime.csv")
+
+# Extract calls in 825
+beat825_calls <- calls2 %>% 
+  filter(beat == 825)
+write.csv(beat825_calls, "beat825_calls.csv")
+
+###################################################################
+
+# Extract stops in 712 beat -- San Ysidro
+beat712_stops <- master2 %>% 
+  filter(beat == 712)
+write.csv(beat712_stops, "beat712_stops.csv")
+
+# Extract crime in 712
+beat712_crime <- crime2 %>% 
+  filter(beat == 712)
+write.csv(beat712_crime, "beat712_crime.csv")
+
+# Extract calls in 712
+beat712_calls <- calls2 %>% 
+  filter(beat == 712)
+write.csv(beat712_calls, "beat712_calls.csv")
+
+###################################################################
+########################## ANALYSIS ###############################
+###################################################################
+
+n_distinct(final$beat)
+
+# How many stops total?
+n_distinct(master$stop_id)
+# 353547
+
+# How many people stopped?
+n_distinct(master$id)
+# 407684
+
+# How many stops occurred in proper police beats?
+n_distinct(master2$stop_id)
+# 344419
+
+# How many people were stopped in proper police beats?
+n_distinct(master2$id)
+# 398082
+
+# Calculate proportion of race of all people stopped
+master %>% 
+  count(race_condensed) %>% 
+  arrange(desc(n))
+
+# race_condensed  count
+#          white 168446
+#           hisp 121874
+#          black  81387
+#          asian  19647
+#          me_sa  11001
+#             pi   3112
+#          mixed   1408
+#            nam    809
+
+# Calculate percentages
+master %>% 
+  count(race_condensed) %>% 
+  mutate((prop = n / sum(n))*100) %>% 
+  arrange(desc(`(prop = n/sum(n)) * 100`))
+
+# race_condensed  count               percent
+#          white 168446              41.3177853
+#           hisp 121874              29.8942318
+#          black  81387              19.9632559
+#          asian  19647               4.8191737
+#          me_sa  11001               2.6984135
+#             pi   3112               0.7633363
+#          mixed   1408               0.3453655
+#            nam    809               0.1984380
+
+# How many stops resulted in searches?
+master2 %>% 
+  filter(is_searched == 1) %>% 
+  group_by(stop_id) %>% 
+  summarise(total = n())
+
+# Create table of just searches
+searches <- master %>% 
+  filter(is_searched == 1)
+
+# How many stops were due to a call for service?
+master %>% 
+  filter(is_serv == 1) %>% 
+  group_by(stop_id) %>% 
+  summarise(total = n())
+
+# Calls by disposition
+call_disp <- calls %>% 
+  group_by(disposition) %>% 
+  summarise(total = n()) %>% 
+  mutate(percent = round((total / sum(total))*100,1))
+
+# Left join to get disposition descriptions
+call_disp <- left_join(call_disp, disp, by = "disposition")
+
+# Calls by type
+call_types <- calls %>% 
+  group_by(call_type) %>% 
+  summarise(total = n()) %>% 
+  mutate(percent = round((total / sum(total))*100,1))
+
+# Most common call type by beat
+call_types <- calls %>% 
+  group_by(beat, call_type) %>% 
+  summarise(total = n())
+
+# Spread
+call_types <- call_types %>% 
+  spread(key = call_type, value = total, fill = 0)
